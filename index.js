@@ -1,4 +1,5 @@
-
+// esta es uan exportacion manual
+const path = require( 'path' )
 
 const express = require('express');
 const { dbConnection } = require('./database/config');
@@ -30,7 +31,9 @@ app.use('/api/auth', require('./routes/auth') )
 // continuacion de la parte 24 
 app.use('/api/events', require('./routes/events') )
 
-
+app.use('*', (req,res) => {
+    res.sendFile( path.join(__dirname, 'public/index.html'))
+})
 
 // rutas, era un ejemplo que funciona nuestro backend
 // app.get('/',(req, res)=>{

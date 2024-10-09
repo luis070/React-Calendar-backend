@@ -80,7 +80,7 @@ const crearUsuario = async(req, res)=>{
 
 
 const loginUsuario = async(req, res)=>{
-    const { email, password} = req.body;
+    const { email, password} = req.body;    
 
 try {  
     const usuario = await Usuario.findOne({email});
@@ -132,6 +132,7 @@ const revalidarToken = async(req, res)=>{
 
     res.json({
         ok:true,
+        uid,name,
         token
     })
 }
